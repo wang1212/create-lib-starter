@@ -1,6 +1,6 @@
 // more see http://rollupjs.org/guide/en/#configuration-files
 
-import babel from '@rollup/plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 import progress from 'rollup-plugin-progress'
 import visualizer from 'rollup-plugin-visualizer'
@@ -9,7 +9,7 @@ import filesize from 'rollup-plugin-filesize'
 const name = 'myLib'
 
 export default {
-	input: 'src/index.js',
+	input: 'src/index.ts',
 	output: [
 		{
 			file: 'build/bundle.js',
@@ -65,7 +65,7 @@ export default {
 		},
 	],
 	plugins: [
-		babel({ babelHelpers: 'bundled' }),
+		typescript(),
 		progress({
 			clearLine: false, // default: true
 		}),

@@ -2,7 +2,7 @@
 
 This is a startup development configuration template used to build the library.
 
-The build tool is based on [rollup](http://rollupjs.org/) and [babel](https://babeljs.io/), among other tools.
+The build tool is based on [rollup](http://rollupjs.org/) and [typescript](https://www.typescriptlang.org/), among other tools.
 
 ## Bundle
 

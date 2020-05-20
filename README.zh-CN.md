@@ -2,7 +2,7 @@
 
 这是用于构建库的启动开发配置模板。
 
-该构建工具基于 [rollup](http://rollupjs.org/) 和 [babel](https://babeljs.io/) 等工具。
+该构建工具基于 [rollup](http://rollupjs.org/) 和 [typescript](https://www.typescriptlang.org/) 等工具。
 
 ## 打包
 
