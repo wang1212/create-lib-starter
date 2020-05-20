@@ -22,14 +22,11 @@ Will also generate the corresponding **sourcemap** file.
 
 ## Usage
 
-There are two ways to use this template:
-
--   1. Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
-
--   2. Another way, clone to local
+First, `clone` to local:
 
 ```bash
 git clone https://github.com/wang1212/create-lib-starter.git
+git checkout typescript
 npm install
 ```
 
@@ -40,6 +37,13 @@ Then, modify the remote address of the github repository to your own:
 ```bash
 git remote set-url origin 'your own address'
 ```
+
+## Others
+
+Due to the different build tools, a variety of options are provided:
+
+-   [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js.
+-   [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
 
 ## License
 
