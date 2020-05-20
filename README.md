@@ -41,6 +41,13 @@ Then, modify the remote address of the github repository to your own:
 git remote set-url origin 'your own address'
 ```
 
+## Others
+
+Due to the different build tools, a variety of options are provided:
+
+-   [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js.
+-   [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
+
 ## License
 
 [MIT](./LICENSE).

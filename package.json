@@ -24,7 +24,8 @@
 		"build/",
 		"index.js",
 		"index.esm.js",
-		"index.web.js"
+		"index.web.js",
+		"README.zh-CN.md"
 	],
 	"peerDependencies": {},
 	"devDependencies": {

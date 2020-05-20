@@ -41,6 +41,13 @@ npm install
 git remote set-url origin 'your own address'
 ```
 
+## 其它
+
+由于构建工具的不同，提供了多种选择：
+
+-   [babel](https://github.com/wang1212/create-lib-starter/) - 基于 babel.js 构建。
+-   [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - 基于 typescript 构建。 (分支)
+
 ## 许可
 
 [MIT](./LICENSE).
