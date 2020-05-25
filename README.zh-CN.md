@@ -4,10 +4,13 @@
 
 该构建工具基于 [rollup](http://rollupjs.org/) 和 [typescript](https://www.typescriptlang.org/) 等工具。
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 ## 打包
 
 运行 `npm run build`, 最终将生成以下捆绑包。
 
+    types/
     build/
     ├── bundle.js
     ├── bundle.min.js
@@ -26,7 +29,7 @@
 
 ```bash
 git clone https://github.com/wang1212/create-lib-starter.git
-git checkout typescript
+git reset --hard typescript
 npm install
 ```
 
