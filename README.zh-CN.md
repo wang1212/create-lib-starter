@@ -4,6 +4,8 @@
 
 该构建工具基于 [rollup](http://rollupjs.org/) 和 [babel](https://babeljs.io/) 等工具。
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 ## 打包
 
 运行 `npm run build`, 最终将生成以下捆绑包。
