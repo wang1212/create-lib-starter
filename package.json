@@ -19,7 +19,13 @@
 	"browser": "index.web.js",
 	"scripts": {
 		"build": "rollup --config",
-		"lint": "eslint --config .eslintrc.json --ext .js,.ts --ignore-pattern src/vendors/**/* src/"
+		"lint": "eslint --config .eslintrc.json --ext .js,.ts --ignore-pattern src/vendors/**/* src/",
+		"prepublishOnly": "npm run build",
+		"release": "np"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
 	},
 	"files": [
 		"build/",
@@ -35,6 +41,7 @@
 		"eslint": "^7.1.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-prettier": "^3.1.3",
+		"np": "*",
 		"prettier": "2.0.5",
 		"rollup": "^2.10.9",
 		"rollup-plugin-filesize": "^9.0.0",
