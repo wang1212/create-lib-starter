@@ -1,6 +1,6 @@
 # create lib starter
 
-这是用于构建库的启动开发配置模板。
+这是用于构建 **JavaScript/Node.js** 库的启动开发配置模板。
 
 该构建工具基于 [rollup](http://rollupjs.org/) 和 [babel](https://babeljs.io/) 等工具。
 

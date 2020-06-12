@@ -1,6 +1,6 @@
 # create lib starter
 
-This is a startup development configuration template used to build the library.
+This is a startup development configuration template used to build the **JavaScript/Node.js** library.
 
 The build tool is based on [rollup](http://rollupjs.org/) and [babel](https://babeljs.io/), among other tools.
 
