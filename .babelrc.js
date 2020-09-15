@@ -1,3 +1,5 @@
+// see docs: https://babeljs.io/docs/en/
+
 module.exports = {
 	presets: [
 		[
