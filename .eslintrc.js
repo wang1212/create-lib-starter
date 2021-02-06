@@ -1,6 +1,7 @@
 // see docs: https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
+	ignorePatterns: ['src/vendors/**/*'],
 	parser: '@babel/eslint-parser',
 	parserOptions: {
 		sourceType: 'module',
