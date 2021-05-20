@@ -17,10 +17,14 @@
 	"module": "index.esm.js",
 	"browser": "index.web.js",
 	"scripts": {
+		"prepare": "husky install",
 		"build": "rollup --config",
 		"lint": "eslint --config .eslintrc.js src/",
 		"prepublishOnly": "npm run build",
 		"release": "np"
+	},
+	"lint-staged": {
+		"*.{js}": "npm run lint"
 	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/",
@@ -38,10 +42,14 @@
 		"@babel/eslint-parser": "^7.12.13",
 		"@babel/eslint-plugin": "^7.12.13",
 		"@babel/preset-env": "^7.12.13",
+		"@commitlint/cli": "^12.1.4",
+		"@commitlint/config-conventional": "^12.1.4",
 		"@rollup/plugin-babel": "^5.2.3",
 		"eslint": "^7.19.0",
 		"eslint-config-prettier": "^7.2.0",
 		"eslint-plugin-prettier": "^3.3.1",
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0",
 		"np": "*",
 		"prettier": "2.2.1",
 		"rollup": "^2.38.5",
