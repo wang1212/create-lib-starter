@@ -13,7 +13,7 @@ module.exports = {
 		jest: false,
 	},
 	plugins: ['@babel', 'prettier'],
-	extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier/babel'],
+	extends: ['eslint:recommended', 'plugin:prettier/recommended'],
 	rules: {
 		'no-console': [
 			'error',
