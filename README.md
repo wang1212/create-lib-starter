@@ -4,7 +4,7 @@ This is a startup development configuration template used to build the **JavaScr
 
 The build tool is based on [rollup](http://rollupjs.org/) and [babel](https://babeljs.io/), among other tools.
 
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+English | [简体中文](./README.zh-CN.md)
 
 ## Bundle
 
