@@ -13,7 +13,7 @@ module.exports = {
     jest: false,
   },
   plugins: ['@babel'],
-  extends: ['eslint:recommended', 'airbnb-base', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'airbnb-base', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended', 'plugin:jsdoc/recommended'],
   rules: {
     'no-console': [
       'error',
