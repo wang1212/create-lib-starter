@@ -26,9 +26,9 @@ Will also generate the corresponding **sourcemap** file.
 
 There are two ways to use this template:
 
--   1. Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
+- 1. Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
 
--   2. Another way, clone to local
+- 2. Another way, clone to local
 
 ```bash
 git clone https://github.com/wang1212/create-lib-starter.git
@@ -47,8 +47,18 @@ git remote set-url origin 'your own address'
 
 Due to the different build tools, a variety of options are provided:
 
--   [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js.
--   [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
+- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js.
+- [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
+
+## Related
+
+If you want to develop a web application, maybe you can take a look:
+
+> [create-web-app](https://github.com/wang1212/create-web-app)
+
+Or, other similar things:
+
+> [awesome-template](https://github.com/wang1212/awesome-template)
 
 ## License
 
