@@ -18,7 +18,7 @@
   "browser": "index.web.js",
   "scripts": {
     "prepare": "husky install",
-    "build": "rollup --config",
+    "build": "npm run lint && rollup --config",
     "lint": "eslint src/ --config=.eslintrc.js --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
     "prepublishOnly": "npm run build",
     "release": "np"

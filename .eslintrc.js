@@ -1,7 +1,7 @@
 // see docs: https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  ignorePatterns: ['node_modules'],
+  ignorePatterns: ['node_modules', 'build', 'types'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',
