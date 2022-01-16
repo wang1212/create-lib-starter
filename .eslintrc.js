@@ -14,13 +14,6 @@ module.exports = {
   },
   plugins: ['@babel'],
   extends: ['eslint:recommended', 'airbnb-base', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended', 'plugin:jsdoc/recommended'],
-  rules: {
-    'no-console': [
-      'error',
-      {
-        allow: ['warn', 'error'],
-      },
-    ],
-  },
+  rules: {},
   globals: {},
 };
