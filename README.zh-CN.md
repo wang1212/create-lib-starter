@@ -47,12 +47,16 @@ git remote set-url origin 'your own address'
 
 由于构建工具的不同，提供了多种选择：
 
-- [babel](https://github.com/wang1212/create-lib-starter/) - 基于 babel.js 构建。
+- [babel](https://github.com/wang1212/create-lib-starter/) - 基于 babel.js 构建。 (分支)
 - [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - 基于 typescript 构建。 (分支)
 
 ## 相关的
 
-如果你想开发一个 Web 应用，也许你可以看看：
+如果你想开发一个 Node.js 命令行工具，可以看看：
+
+- [create-cli-app](https://github.com/wang1212/create-lib-starter/tree/cli) - 构建 cli 应用。 (分支)
+
+或，如果你想开发一个 Web 应用，也许你可以看看：
 
 > [create-web-app](https://github.com/wang1212/create-web-app)
 

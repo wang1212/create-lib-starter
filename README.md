@@ -47,12 +47,16 @@ git remote set-url origin 'your own address'
 
 Due to the different build tools, a variety of options are provided:
 
-- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js.
+- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js. (branch)
 - [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
 
 ## Related
 
-If you want to develop a web application, maybe you can take a look:
+If you want to develop a Node.js command line tool, take a look at:
+
+- [create-cli-app](https://github.com/wang1212/create-lib-starter/tree/cli) - Build the cli application. (branch)
+
+Or, If you want to develop a web application, maybe you can take a look:
 
 > [create-web-app](https://github.com/wang1212/create-web-app)
 
