@@ -2,7 +2,8 @@
 
 // eslint-disable-next-line no-undef
 module.exports = {
-  ignorePatterns: ['node_modules'],
+  extends: ['@wang1212/eslint-config/node'],
+  ignorePatterns: ['node_modules', '.husky'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -15,15 +16,6 @@ module.exports = {
     jest: false,
   },
   plugins: [],
-  extends: [
-    'eslint:recommended',
-    'airbnb-base',
-    'plugin:promise/recommended',
-    'plugin:node/recommended-module',
-    'plugin:sonarjs/recommended',
-    'plugin:prettier/recommended',
-    'plugin:jsdoc/recommended',
-  ],
   rules: {
     'import/extensions': ['error', 'ignorePackages'],
   },
