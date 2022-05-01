@@ -18,7 +18,7 @@
   },
   "author": "",
   "bin": {
-    "cli-app": "index.js"
+    "cli-app": "./index.js"
   },
   "scripts": {
     "prepare": "husky install",
