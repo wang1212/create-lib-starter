@@ -14,6 +14,8 @@ module.exports = {
     jest: false,
   },
   plugins: ['@babel'],
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 'off',
+  },
   globals: {},
 };

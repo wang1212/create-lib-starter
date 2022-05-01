@@ -1,5 +1,7 @@
 // more see http://rollupjs.org/guide/en/#configuration-files
 
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import progress from 'rollup-plugin-progress';
@@ -8,9 +10,13 @@ import filesize from 'rollup-plugin-filesize';
 
 const name = 'myLib';
 
-export default {
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+const config = {
   input: 'src/index.js',
   output: [
+    // * IIFE
     {
       file: 'build/bundle.js',
       format: 'iife',
@@ -26,6 +32,7 @@ export default {
       sourcemap: true,
       plugins: [terser()],
     },
+    // * UMD
     {
       file: 'build/bundle.umd.js',
       format: 'umd',
@@ -41,6 +48,7 @@ export default {
       sourcemap: true,
       plugins: [terser()],
     },
+    // * ES module
     {
       file: 'build/bundle.esm.js',
       format: 'es',
@@ -52,6 +60,7 @@ export default {
       sourcemap: true,
       plugins: [terser()],
     },
+    // * CommonJS
     {
       file: 'build/bundle.cjs.js',
       format: 'cjs',
@@ -65,6 +74,8 @@ export default {
     },
   ],
   plugins: [
+    nodeResolve(),
+    commonjs(),
     babel({ babelHelpers: 'bundled' }),
     progress({
       clearLine: false, // default: true
@@ -74,3 +85,5 @@ export default {
   ],
   external: [],
 };
+
+export default config;

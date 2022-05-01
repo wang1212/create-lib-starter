@@ -13,9 +13,14 @@
     "node": ">=12"
   },
   "author": "",
-  "main": "index.js",
-  "module": "index.esm.js",
-  "browser": "index.umd.js",
+  "exports": {
+    "import": "./index.esm.js",
+    "require": "./index.cjs.js",
+    "browser": "./index.umd.js"
+  },
+  "main": "./index.cjs.js",
+  "module": "./index.esm.js",
+  "browser": "./index.umd.js",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src/ --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
@@ -32,7 +37,7 @@
   },
   "files": [
     "build/",
-    "index.js",
+    "index.cjs.js",
     "index.esm.js",
     "index.web.js"
   ],
@@ -45,6 +50,8 @@
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
     "@wang1212/eslint-config": "^0.1.4",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
