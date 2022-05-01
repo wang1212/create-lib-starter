@@ -7,6 +7,12 @@ import { terser } from 'rollup-plugin-terser';
 import progress from 'rollup-plugin-progress';
 import visualizer from 'rollup-plugin-visualizer';
 import filesize from 'rollup-plugin-filesize';
+import strip from '@rollup/plugin-strip';
+import eslint from '@rollup/plugin-eslint';
+import dev from 'rollup-plugin-dev';
+import del from 'rollup-plugin-delete';
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const name = 'myLib';
 
@@ -24,7 +30,7 @@ const config = {
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
     },
-    {
+    !isDevelopment && {
       file: 'build/bundle.min.js',
       format: 'iife',
       name,
@@ -40,7 +46,7 @@ const config = {
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
     },
-    {
+    !isDevelopment && {
       file: 'build/bundle.umd.min.js',
       format: 'umd',
       name,
@@ -54,7 +60,7 @@ const config = {
       format: 'es',
       sourcemap: true,
     },
-    {
+    !isDevelopment && {
       file: 'build/bundle.esm.min.js',
       format: 'es',
       sourcemap: true,
@@ -66,23 +72,33 @@ const config = {
       format: 'cjs',
       sourcemap: true,
     },
-    {
+    !isDevelopment && {
       file: 'build/bundle.cjs.min.js',
       format: 'cjs',
       sourcemap: true,
       plugins: [terser()],
     },
-  ],
+  ].filter(Boolean),
   plugins: [
+    del({ targets: 'build/*' }),
+    isDevelopment &&
+      eslint({
+        include: 'src/**/*.js',
+        throwOnError: true,
+        fix: true,
+        formatter: 'pretty',
+      }),
     nodeResolve(),
     commonjs(),
+    !isDevelopment && strip(),
     babel({ babelHelpers: 'bundled' }),
+    isDevelopment && dev('build'),
     progress({
       clearLine: false, // default: true
     }),
+    !isDevelopment && filesize(),
     visualizer({ sourcemap: true, open: false, gzipSize: false }),
-    filesize(),
-  ],
+  ].filter(Boolean),
   external: [],
 };
 
