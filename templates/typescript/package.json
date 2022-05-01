@@ -56,7 +56,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "np": "*",
-    "prettier": "2.5.1",
+    "prettier": "2.6.2",
     "rollup": "^2.64.0",
     "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-progress": "^1.1.2",
