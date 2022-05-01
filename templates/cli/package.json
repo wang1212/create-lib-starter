@@ -1,0 +1,64 @@
+{
+  "name": "cli-app",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "#readme",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/*/*/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "author": "",
+  "bin": {
+    "cli-app": "index.js"
+  },
+  "scripts": {
+    "node": "node --experimental-specifier-resolution=node",
+    "prepare": "husky install",
+    "lint": "eslint src/ --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "prepublishOnly": "npm run lint",
+    "release": "np --message='v%s'"
+  },
+  "lint-staged": {
+    "*.{js}": "npm run lint"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "index.js"
+  ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsdoc": "^37.4.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
+    "np": "*",
+    "prettier": "2.5.1"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}

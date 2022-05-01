@@ -1,0 +1,68 @@
+{
+  "name": "my-lib",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "#readme",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "author": "",
+  "main": "index.js",
+  "types": "./types/index.d.ts",
+  "module": "index.esm.js",
+  "browser": "index.web.js",
+  "scripts": {
+    "prepare": "husky install",
+    "build": "npm run lint && rollup --config",
+    "lint": "eslint src/ --config=.eslintrc.js --ext=.js,.ts --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "prepublishOnly": "npm run build",
+    "release": "np"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "npm run lint"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "build/",
+    "types/",
+    "index.js",
+    "index.esm.js",
+    "index.web.js"
+  ],
+  "peerDependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
+    "np": "*",
+    "prettier": "2.5.1",
+    "rollup": "^2.64.0",
+    "rollup-plugin-filesize": "^9.1.2",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "rollup-plugin-visualizer": "^5.5.4",
+    "typescript": "^4.5.4"
+  }
+}

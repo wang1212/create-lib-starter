@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "sourceMap": true,
+    "rootDir": "./src",
+    // "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitThis": true,
+    // "noImplicitAny": true
+    "declaration": true,
+    "declarationDir": "./types"
+  },
+  "include": ["src", "rollup.config.js", ".eslintrc.js"],
+  "exclude": ["node_modules", "build"]
+}

@@ -1,62 +1,64 @@
-# create lib starter
+# Create JavaScript Lib Starter
+
+![LICENSE](https://badgen.net/github/license/wang1212/create-lib-starter)
+![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-lib-starter)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 This is a startup development configuration template used to build the **JavaScript/Node.js** library.
 
-The build tool is based on [rollup](http://rollupjs.org/) and [babel](https://babeljs.io/), among other tools.
-
 English | [简体中文](./README.zh-CN.md)
 
-## Bundle
+## Templates
 
-Run `npm run build`, the following bundles will eventually be generated.
+The following templates are provided here:
 
-    build/
-    ├── bundle.js
-    ├── bundle.min.js
-    ├── bundle.esm.js
-    ├── bundle.esm.min.js
-    ├── bundle.cjs.js
-    ├── bundle.cjs.min.js
-    ├── bundle.umd.js
-    └── bundle.umd.min.js
-
-Will also generate the corresponding **sourcemap** file.
+- [JavaScript](./templates/javascript/)
+- [TypeScript](./templates/typescript/)
+- [CLI](./templates/cli/)
 
 ## Usage
 
-There are two ways to use this template:
+1. There are two ways to use this template:
 
-- 1. Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
+   - Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
 
-- 2. Another way, clone to local
+   - Another way, clone to local
+
+     ```bash
+     git clone https://github.com/wang1212/create-lib-starter.git
+     ```
+
+2. Then, select any template type you want to use, copy the contents of its folder(_./templates/\*_) to the project root directory, and delete the _templates/_ folder.
+
+   - [Choose an open source license](https://choosealicense.com/).
+
+   - Modify `package.json` information, such as `name`, `description`, etc.
+
+   - Set the remote address of the github repository to your own:
+
+     ```bash
+     git remote set-url origin 'your own address'
+     ```
+
+## Development Guidelines
+
+### Git Commit Message Format
+
+Adopt [community commit format best practices](https://www.conventionalcommits.org/):
 
 ```bash
-git clone https://github.com/wang1212/create-lib-starter.git
-npm install
+# Before
+git commit
+
+# Now
+npm run commit
 ```
 
-Modify `package.json` information, such as `name`, `description`, etc.
-
-Then, modify the remote address of the github repository to your own:
-
-```bash
-git remote set-url origin 'your own address'
-```
-
-## Others
-
-Due to the different build tools, a variety of options are provided:
-
-- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js. (branch)
-- [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
+_This constraint relies on tools [commitizen](http://commitizen.github.io/cz-cli/) and [commitlint](https://commitlint.js.org/) provided by the community._
 
 ## Related
 
-If you want to develop a Node.js command line tool, take a look at:
-
-- [create-cli-app](https://github.com/wang1212/create-lib-starter/tree/cli) - Build the cli application. (branch)
-
-Or, If you want to develop a web application, maybe you can take a look:
+If you want to develop a web application, maybe you can take a look:
 
 > [create-web-app](https://github.com/wang1212/create-web-app)
 
