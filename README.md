@@ -5,9 +5,9 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a8f4a088840a4cec88e56a9c11f25e87)](https://www.codacy.com/gh/wang1212/create-lib-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-lib-starter&utm_campaign=Badge_Grade)
 
-This is a startup development configuration template used to build the **JavaScript/Node.js** library.
-
 English | [简体中文](./README.zh-CN.md)
+
+This is a startup development configuration template used to build the **JavaScript/Node.js** library.
 
 ## Templates
 
