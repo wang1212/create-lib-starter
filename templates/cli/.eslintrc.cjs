@@ -16,8 +16,6 @@ module.exports = {
     jest: false,
   },
   plugins: [],
-  rules: {
-    'import/extensions': ['error', 'ignorePackages'],
-  },
+  rules: {},
   globals: {},
 };
