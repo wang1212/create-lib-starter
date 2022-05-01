@@ -1,7 +1,8 @@
 // see docs: https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  ignorePatterns: ['node_modules', 'build', 'types'],
+  extends: ['@wang1212/eslint-config'],
+  ignorePatterns: ['node_modules', '.husky', 'build', 'types'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',
@@ -13,7 +14,6 @@ module.exports = {
     jest: false,
   },
   plugins: ['@babel'],
-  extends: ['eslint:recommended', 'airbnb-base', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended', 'plugin:jsdoc/recommended'],
   rules: {},
   globals: {},
 };
