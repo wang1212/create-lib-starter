@@ -22,10 +22,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "lint": "eslint src/ --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
+    "lint": "eslint . --config=.eslintrc.cjs --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
     "node": "node --experimental-specifier-resolution=node",
     "test": "echo \"test\"",
     "build": "echo \"build\"",
+    "commit": "cz",
     "prerelease": "npm run test",
     "release": "standard-version",
     "prepublishOnly": "npm run build"
@@ -44,6 +45,8 @@
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@wang1212/eslint-config": "^0.1.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.14.0",
     "eslint-formatter-pretty": "^4.1.0",
     "husky": "^7.0.4",

@@ -1,5 +1,15 @@
 # create cli app starter
 
+<!-- ![LICENSE](https://badgen.net/github/license/wang1212/create-cli-app-starter) -->
+<!-- ![MINZIPPED SIZE](https://badgen.net/bundlephobia/minzip/@wang1212/create-cli-app-starter) -->
+<!-- [![NPM VERSION](https://badgen.net/npm/v/@wang1212/create-cli-app-starter)](https://www.npmjs.com/package/@wang1212/create-cli-app-starter) -->
+<!-- ![DOWNLOAD](https://badgen.net/npm/dt/@wang1212/create-cli-app-starter) -->
+<!-- ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-cli-app-starter) -->
+<!-- ![GITHUB PACKAGE CI](https://img.shields.io/github/workflow/status/wang1212/create-cli-app-starter/Node.js%20Package?label=ci/package%20publish) -->
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b9c06027ba47788617123cf84d3912)](https://www.codacy.com/gh/wang1212/create-cli-app-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-cli-app-starter&utm_campaign=Badge_Grade) -->
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 English | [简体中文](./README.zh-CN.md)
 
 This is a starter development configuration template for building **Node.js command line applications**.
@@ -8,39 +18,37 @@ _**This package is now pure ESM, read [this](https://gist.github.com/sindresorhu
 
 ## Usage
 
-There are two ways to use this template:
+## Development Guidelines
 
-- 1. Open [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), then Click **Use this template** Button.
+### Git Commit Message Format
 
-- 2. Another way, clone to local
-
-```bash
-git clone https://github.com/wang1212/create-lib-starter.git
-npm install
-```
-
-Modify `package.json` information, such as `name`, `description`, etc.
-
-Then, modify the remote address of the github repository to your own:
+Adopt [community commit format best practices](https://www.conventionalcommits.org/):
 
 ```bash
-git remote set-url origin 'your own address'
+# Before
+git commit
+
+# Now
+npm run commit
 ```
 
-## Related
+_This constraint relies on tools [commitizen](http://commitizen.github.io/cz-cli/) and [commitlint](https://commitlint.js.org/) provided by the community._
 
-If you want to develop a JavaScript/Node.js package for distribution, build on the different tools you can see below:
+### npm publish
 
-- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js. (branch)
-- [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
+The version management of this module adopts the specifications recommended by the community [Semantic Versioning](https://semver.org/). Follow version changes and maintain a **CHANGELOG.md**([Learn why](https://keepachangelog.com/)).
 
-Or, If you want to develop a web application, maybe you can take a look:
+```bash
+# Update version and generate changelog before publishing to npm repository
+npm run release # npm run release -- --first-release
+# Or, preview
+npm run release -- --dry-run
 
-> [create-web-app](https://github.com/wang1212/create-web-app)
+# Then
+npm publish # npm publish --access public
+```
 
-Or, other similar things:
-
-> [awesome-template](https://github.com/wang1212/awesome-template)
+_These jobs are done with the help of [standard-version](https://github.com/conventional-changelog/standard-version) tool provided by the community._
 
 ## License
 

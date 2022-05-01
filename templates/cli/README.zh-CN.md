@@ -1,5 +1,15 @@
 # create cli app starter
 
+<!-- ![LICENSE](https://badgen.net/github/license/wang1212/create-cli-app-starter) -->
+<!-- ![MINZIPPED SIZE](https://badgen.net/bundlephobia/minzip/@wang1212/create-cli-app-starter) -->
+<!-- [![NPM VERSION](https://badgen.net/npm/v/@wang1212/create-cli-app-starter)](https://www.npmjs.com/package/@wang1212/create-cli-app-starter) -->
+<!-- ![DOWNLOAD](https://badgen.net/npm/dt/@wang1212/create-cli-app-starter) -->
+<!-- ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-cli-app-starter) -->
+<!-- ![GITHUB PACKAGE CI](https://img.shields.io/github/workflow/status/wang1212/create-cli-app-starter/Node.js%20Package?label=ci/package%20publish) -->
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b9c06027ba47788617123cf84d3912)](https://www.codacy.com/gh/wang1212/create-cli-app-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-cli-app-starter&utm_campaign=Badge_Grade) -->
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 [English](./README.md) | 简体中文
 
 这是一个用来构建 **Node.js 命令行应用** 的启动开发配置模板。
@@ -8,39 +18,37 @@ _**这个包现在是纯 ESM，查看[这里](https://gist.github.com/sindresorh
 
 ## 用法
 
-有两种使用此模板的方法：
+## 开发准则
 
-- 1. 打开 [GitHub Repository Website](https://github.com/wang1212/create-lib-starter), 然后点击 **Use this template** 按钮。
+### Git 提交信息格式
 
-- 2. 另一种方式, `clone` 到本地
-
-```bash
-git clone https://github.com/wang1212/create-lib-starter.git
-npm install
-```
-
-修改 `package.json` 信息, 例如 `name`, `description` 等。
-
-然后, 将仓库远程地址修改为你自己的:
+采用[社区提交格式最佳实践](https://www.conventionalcommits.org/)：
 
 ```bash
-git remote set-url origin 'your own address'
+# 以前
+git commit
+
+# 现在
+npm run commit
 ```
 
-## 相关的
+_这种约束依赖于社区提供的工具 [commitizen](http://commitizen.github.io/cz-cli/) 和 [commitlint](https://commitlint.js.org/)。_
 
-如果你想开发一个 JavaScript/Node.js 模块包发布，基于不同的工具构建可以看看：
+### npm 发布
 
-- [babel](https://github.com/wang1212/create-lib-starter/) - 基于 babel.js 构建。 (分支)
-- [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - 基于 typescript 构建。 (分支)
+该模块的版本管理采用社区推荐的规范[语义化版本控制](https://semver.org/)。跟随版本变动会维护一个**变更日志(CHANGELOG.md)**（[了解为什么这么做](https://keepachangelog.com/)）。
 
-或，如果你想开发一个 Web 应用，也许你可以看看：
+```bash
+# 在发布到 npm 存储库之前更新版本并生成更改日志
+npm run release # npm run release -- --first-release
+# 或者，进行预览
+npm run release -- --dry-run
 
-> [create-web-app](https://github.com/wang1212/create-web-app)
+# 然后发布
+npm publish # npm publish --access public
+```
 
-或，其它类似的东西：
-
-> [awesome-template](https://github.com/wang1212/awesome-template)
+_这些工作是在社区提供的 [standard-version](https://github.com/conventional-changelog/standard-version) 工具的帮助下完成的。_
 
 ## 许可
 
