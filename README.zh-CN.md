@@ -3,6 +3,7 @@
 ![LICENSE](https://badgen.net/github/license/wang1212/create-lib-starter)
 ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-lib-starter)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a8f4a088840a4cec88e56a9c11f25e87)](https://www.codacy.com/gh/wang1212/create-lib-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-lib-starter&utm_campaign=Badge_Grade)
 
 这是用于构建 **JavaScript/Node.js** 库的启动开发配置模板。
 
