@@ -1,66 +1,73 @@
 # create lib starter
 
+<!-- ![LICENSE](https://badgen.net/github/license/wang1212/create-cli-app-starter) -->
+<!-- ![MINZIPPED SIZE](https://badgen.net/bundlephobia/minzip/@wang1212/create-cli-app-starter) -->
+<!-- [![NPM VERSION](https://badgen.net/npm/v/@wang1212/create-cli-app-starter)](https://www.npmjs.com/package/@wang1212/create-cli-app-starter) -->
+<!-- ![DOWNLOAD](https://badgen.net/npm/dt/@wang1212/create-cli-app-starter) -->
+<!-- ![LAST COMMIT](https://badgen.net/github/last-commit/wang1212/create-cli-app-starter) -->
+<!-- ![GITHUB PACKAGE CI](https://img.shields.io/github/workflow/status/wang1212/create-cli-app-starter/Node.js%20Package?label=ci/package%20publish) -->
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b9c06027ba47788617123cf84d3912)](https://www.codacy.com/gh/wang1212/create-cli-app-starter/dashboard?utm_source=github.com&utm_medium=referral&utm_content=wang1212/create-cli-app-starter&utm_campaign=Badge_Grade) -->
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+English | [简体中文](./README.zh-CN.md)
+
 This is a startup development configuration template used to build the **JavaScript/Node.js** library.
 
 The build tool is based on [rollup](http://rollupjs.org/) and [typescript](https://www.typescriptlang.org/), among other tools.
-
-English | [简体中文](./README.zh-CN.md)
 
 ## Bundle
 
 Run `npm run build`, the following bundles will eventually be generated.
 
-    types/
-    build/
-    ├── bundle.js
-    ├── bundle.min.js
-    ├── bundle.esm.js
-    ├── bundle.esm.min.js
-    ├── bundle.cjs.js
-    ├── bundle.cjs.min.js
-    ├── bundle.umd.js
-    └── bundle.umd.min.js
+```plain
+types/
+build/
+├── bundle.js
+├── bundle.min.js
+├── bundle.esm.js
+├── bundle.esm.min.js
+├── bundle.cjs.js
+├── bundle.cjs.min.js
+├── bundle.umd.js
+└── bundle.umd.min.js
+```
 
 Will also generate the corresponding **sourcemap** file.
 
 ## Usage
 
-First, `clone` to local:
+## Development Guidelines
+
+### Git Commit Message Format
+
+Adopt [community commit format best practices](https://www.conventionalcommits.org/):
 
 ```bash
-git clone https://github.com/wang1212/create-lib-starter.git
-git reset --hard typescript
-npm install
+# Before
+git commit
+
+# Now
+npm run commit
 ```
 
-Modify `package.json` information, such as `name`, `description`, etc.
+_This constraint relies on tools [commitizen](http://commitizen.github.io/cz-cli/) and [commitlint](https://commitlint.js.org/) provided by the community._
 
-Then, modify the remote address of the github repository to your own:
+### npm publish
+
+The version management of this module adopts the specifications recommended by the community [Semantic Versioning](https://semver.org/). Follow version changes and maintain a **CHANGELOG.md**([Learn why](https://keepachangelog.com/)).
 
 ```bash
-git remote set-url origin 'your own address'
+# Update version and generate changelog before publishing to npm repository
+npm run release # npm run release -- --first-release
+# Or, preview
+npm run release -- --dry-run
+
+# Then
+npm publish # npm publish --access public
 ```
 
-## Others
-
-Due to the different build tools, a variety of options are provided:
-
-- [babel](https://github.com/wang1212/create-lib-starter/) - build based on babel.js. (branch)
-- [typescript](https://github.com/wang1212/create-lib-starter/tree/typescript) - build based on typescript. (branch)
-
-## Related
-
-If you want to develop a Node.js command line tool, take a look at:
-
-- [create-cli-app](https://github.com/wang1212/create-lib-starter/tree/cli) - Build the cli application. (branch)
-
-Or, If you want to develop a web application, maybe you can take a look:
-
-> [create-web-app](https://github.com/wang1212/create-web-app)
-
-Or, other similar things:
-
-> [awesome-template](https://github.com/wang1212/awesome-template)
+_These jobs are done with the help of [standard-version](https://github.com/conventional-changelog/standard-version) tool provided by the community._
 
 ## License
 
