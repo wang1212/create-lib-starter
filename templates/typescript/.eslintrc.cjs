@@ -16,6 +16,8 @@ module.exports = {
   },
   plugins: [],
   settings: {},
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 'off',
+  },
   globals: {},
 };

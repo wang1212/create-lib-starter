@@ -37,6 +37,12 @@ Will also generate the corresponding **sourcemap** file.
 
 ## Usage
 
+- For development:
+
+  ```bash
+  npm run dev
+  ```
+
 ## Development Guidelines
 
 ### Git Commit Message Format
