@@ -13,10 +13,15 @@
     "node": ">=12"
   },
   "author": "",
+  "exports": {
+    "import": "./index.esm.js",
+    "require": "./index.cjs.js",
+    "browser": "./index.umd.js"
+  },
   "main": "./index.cjs.js",
-  "types": "./types/index.d.ts",
   "module": "./index.esm.js",
   "browser": "./index.web.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src/ --config=.eslintrc.cjs --ext=.js,.ts --fix --quiet --cache --cache-location=node_modules/.cache/.eslintcache --format=pretty",
