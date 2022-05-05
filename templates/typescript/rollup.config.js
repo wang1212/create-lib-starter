@@ -9,7 +9,6 @@ import visualizer from 'rollup-plugin-visualizer';
 import filesize from 'rollup-plugin-filesize';
 import strip from '@rollup/plugin-strip';
 import eslint from '@rollup/plugin-eslint';
-import dev from 'rollup-plugin-dev';
 import del from 'rollup-plugin-delete';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -92,7 +91,6 @@ const config = {
     commonjs(),
     !isDevelopment && strip(),
     typescript({ useTsconfigDeclarationDir: true }),
-    isDevelopment && dev('build'),
     progress({
       clearLine: false, // default: true
     }),
