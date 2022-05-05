@@ -2,8 +2,8 @@
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
-import { terser } from 'rollup-plugin-terser';
+import typescript2 from 'rollup-plugin-typescript2';
+import esbuild, { minify } from 'rollup-plugin-esbuild';
 import progress from 'rollup-plugin-progress';
 import visualizer from 'rollup-plugin-visualizer';
 import filesize from 'rollup-plugin-filesize';
@@ -22,7 +22,7 @@ const config = {
   input: 'src/index.ts',
   output: [
     // * IIFE
-    {
+    !isDevelopment && {
       file: 'build/bundle.js',
       format: 'iife',
       name,
@@ -35,7 +35,7 @@ const config = {
       name,
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
-      plugins: [terser()],
+      plugins: [minify()],
     },
     // * UMD
     {
@@ -51,10 +51,10 @@ const config = {
       name,
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
-      plugins: [terser()],
+      plugins: [minify()],
     },
     // * ES module
-    {
+    !isDevelopment && {
       file: 'build/bundle.esm.js',
       format: 'es',
       sourcemap: true,
@@ -63,10 +63,10 @@ const config = {
       file: 'build/bundle.esm.min.js',
       format: 'es',
       sourcemap: true,
-      plugins: [terser()],
+      plugins: [minify()],
     },
     // * CommonJS
-    {
+    !isDevelopment && {
       file: 'build/bundle.cjs.js',
       format: 'cjs',
       sourcemap: true,
@@ -75,7 +75,7 @@ const config = {
       file: 'build/bundle.cjs.min.js',
       format: 'cjs',
       sourcemap: true,
-      plugins: [terser()],
+      plugins: [minify()],
     },
   ].filter(Boolean),
   plugins: [
@@ -87,13 +87,19 @@ const config = {
         fix: true,
         formatter: 'pretty',
       }),
-    nodeResolve(),
+    nodeResolve({ browser: true }),
     commonjs(),
+    isDevelopment &&
+      esbuild({
+        target: 'esnext',
+      }),
+    !isDevelopment &&
+      typescript2({ useTsconfigDeclarationDir: true, check: false }),
     !isDevelopment && strip(),
-    typescript({ useTsconfigDeclarationDir: true }),
-    progress({
-      clearLine: false, // default: true
-    }),
+    !isDevelopment &&
+      progress({
+        clearLine: false, // default: true
+      }),
     !isDevelopment && filesize(),
     visualizer({ sourcemap: true, open: false, gzipSize: false }),
   ].filter(Boolean),
