@@ -20,7 +20,7 @@
   },
   "main": "./index.cjs.js",
   "module": "./index.esm.js",
-  "browser": "./index.web.js",
+  "browser": "./index.umd.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "prepare": "husky install",
@@ -42,7 +42,7 @@
     "types/",
     "index.cjs.js",
     "index.esm.js",
-    "index.web.js"
+    "index.umd.js"
   ],
   "peerDependencies": {},
   "devDependencies": {

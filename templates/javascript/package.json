@@ -40,7 +40,7 @@
     "build/",
     "index.cjs.js",
     "index.esm.js",
-    "index.web.js"
+    "index.umd.js"
   ],
   "peerDependencies": {},
   "devDependencies": {

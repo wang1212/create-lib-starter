@@ -11,6 +11,6 @@
     "declaration": true,
     "declarationDir": "./types"
   },
-  "include": ["src", "rollup.config.js", ".eslintrc.cjs"],
-  "exclude": ["node_modules", "build"]
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "rollup.config.js", ".eslintrc.cjs"]
 }
