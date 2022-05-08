@@ -1,5 +1,18 @@
 /*!
- * My lib 0.1.0
+ * My lib
  */
+export {
+  /** 版本信息 */
+  version as VERSION,
+} from '../package.json';
 
-export const str = 'Hello world!';
+/**
+ * 类
+ */
+export class Hello {
+  static str = 'Hello world!';
+
+  static getStr() {
+    return Hello.str;
+  }
+}

@@ -3,7 +3,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   extends: ['@wang1212/eslint-config/node'],
-  ignorePatterns: ['node_modules', '.husky'],
+  ignorePatterns: ['node_modules', '.husky', 'docs'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

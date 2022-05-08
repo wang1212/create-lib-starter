@@ -2,7 +2,15 @@
 
 module.exports = {
   extends: ['@wang1212/eslint-config'],
-  ignorePatterns: ['node_modules', '.husky', 'build', 'types'],
+  ignorePatterns: [
+    'node_modules',
+    '.husky',
+    '.github',
+    'build',
+    'types',
+    'vendors',
+    'docs',
+  ],
   parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',

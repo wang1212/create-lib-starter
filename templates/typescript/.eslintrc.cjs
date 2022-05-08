@@ -2,7 +2,15 @@
 
 module.exports = {
   extends: ['@wang1212/eslint-config/typescript'],
-  ignorePatterns: ['node_modules', '.husky', '.github', 'build', 'types'],
+  ignorePatterns: [
+    'node_modules',
+    '.husky',
+    '.github',
+    'build',
+    'types',
+    'vendors',
+    'docs',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',

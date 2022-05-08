@@ -10,8 +10,16 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "declaration": true,
-    "declarationDir": "./types"
+    "declarationDir": "./types",
+    "typeRoots": ["node_modules/@types", "./vendors/@types"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "build", "rollup.config.js", ".eslintrc.cjs"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "rollup.config.js",
+    ".eslintrc.cjs",
+    "vendors",
+    "docs"
+  ]
 }
