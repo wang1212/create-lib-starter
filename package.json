@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/wang1212/create-lib-starter#readme",
   "devDependencies": {
-    "@commitlint/cli": "16.2.4",
+    "@commitlint/cli": "16.3.0",
     "@commitlint/config-conventional": "16.2.4",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
