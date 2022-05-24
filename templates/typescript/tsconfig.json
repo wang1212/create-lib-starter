@@ -17,7 +17,7 @@
     "declaration": true,
     "declarationMap": false,
     "declarationDir": "./types",
-    "emitDeclarationOnly": true,
+    // "emitDeclarationOnly": true,
 
     "typeRoots": ["node_modules/@types", "./vendors/@types"]
   },
