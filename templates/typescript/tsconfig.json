@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
 
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "./dist",
 
     "sourceMap": true,

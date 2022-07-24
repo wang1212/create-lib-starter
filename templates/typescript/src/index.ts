@@ -3,7 +3,8 @@
  */
 export {
   /** 版本信息 */
-  version as VERSION,
+  // eslint-disable-next-line
+  version as VERSION, // @ts-ignore
 } from '../package.json';
 /**
  * 类
@@ -15,5 +16,3 @@ export class Hello {
     return Hello.str;
   }
 }
-// # sourceMappingURL=index.js.map
-// # sourceMappingURL=index.js.map
