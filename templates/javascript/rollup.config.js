@@ -110,14 +110,14 @@ const config = {
   ].filter(Boolean),
   plugins: [
     del({ targets: 'build/*', runOnce: true }),
-    isEnvDevelopment &&
-      // no V8
-      eslint({
-        include: 'src/**/*.js',
-        throwOnError: true,
-        fix: true,
-        formatter: 'pretty',
-      }),
+    // isEnvDevelopment &&
+    //   // no V8
+    //   eslint({
+    //     include: 'src/**/*.js',
+    //     throwOnError: true,
+    //     fix: true,
+    //     formatter: 'pretty',
+    //   }),
     commonjs({ sourceMap: isEnvProduction }),
     nodeResolve({ browser: true }),
     json(),
