@@ -71,7 +71,7 @@
     "@typescript-eslint/parser": "5.25.0",
     "@wang1212/eslint-config": "0.2.1",
     "babel-jest": "^28.1.3",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.20.0",
