@@ -12,5 +12,8 @@
 # bundle
 /build
 
+# docs build
+/docs-html
+
 # rollup visualizer
 stats.html

@@ -22,8 +22,6 @@
 
 ```plain
 build/
-├── bundle.js
-├── bundle.min.js
 ├── bundle.esm.js
 ├── bundle.esm.min.js
 ├── bundle.cjs.js
