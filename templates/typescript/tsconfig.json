@@ -1,33 +1,34 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
 
-    "rootDir": "./src",
-    "outDir": "./build",
+    "rootDir": ".",
+    "outDir": "./dist",
 
     "sourceMap": true,
     "removeComments": false,
 
     "strict": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
+    // "strictNullChecks": false,
+    // "strictBindCallApply": false,
+    // "strictFunctionTypes": false,
+    // "strictPropertyInitialization": false,
+    // "noImplicitAny": false,
+    // "noImplicitThis": false,
+
     "esModuleInterop": true,
-    // "resolveJsonModule": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
 
     "declaration": true,
     "declarationMap": false,
     "declarationDir": "./types",
     // "emitDeclarationOnly": true,
 
-    "typeRoots": ["node_modules/@types", "./vendors/@types"]
+    "typeRoots": ["node_modules/@types", "vendors/@types"],
+
+    "skipLibCheck": true
   },
   "include": ["src", "vendors/@types"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "rollup.config.js",
-    ".eslintrc.cjs",
-    "vendors",
-    "docs"
-  ]
+  "exclude": [".eslintrc.cjs", "docs", "public", "dist", "build", "scripts"]
 }

@@ -23,8 +23,6 @@ Run `npm run build`, the following bundles will eventually be generated.
 ```plain
 types/
 build/
-├── bundle.js
-├── bundle.min.js
 ├── bundle.esm.js
 ├── bundle.esm.min.js
 ├── bundle.cjs.js

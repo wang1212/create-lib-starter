@@ -5,14 +5,15 @@ export {
   /** 版本信息 */
   version as VERSION,
 } from '../package.json';
-
 /**
  * 类
  */
 export class Hello {
   static str = 'Hello world!';
 
-  static getStr(): string {
+  static getStr() {
     return Hello.str;
   }
 }
+// # sourceMappingURL=index.js.map
+// # sourceMappingURL=index.js.map

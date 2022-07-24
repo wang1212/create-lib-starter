@@ -2,23 +2,29 @@
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import eslint from '@rollup/plugin-eslint';
 import json from '@rollup/plugin-json';
 import url from '@rollup/plugin-url';
-import typescript from 'rollup-plugin-typescript2';
-import esbuild, { minify } from 'rollup-plugin-esbuild';
+import styles from 'rollup-plugin-styles';
+import typescript from '@rollup/plugin-typescript';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
-import eslint from '@rollup/plugin-eslint';
 import del from 'rollup-plugin-delete';
 import progress from 'rollup-plugin-progress';
 import filesize from 'rollup-plugin-filesize';
 import visualizer from 'rollup-plugin-visualizer';
 import pkg from './package.json';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isEnvDevelopment = String(process.env.NODE_ENV).trim() === 'development';
+const isEnvProduction =
+  String(process.env.NODE_ENV).trim() === 'production' || !isEnvDevelopment;
+const babelConfig = require('./.babelrc.cjs');
 
-const name = 'myLib' || pkg.name;
+const name = 'myLib';
 const banner = () => {
-  return `/**
+  return `/*!
   * ${name}
   * @version ${pkg.version}
   * @date ${new Date().toLocaleString()}
@@ -30,35 +36,19 @@ const banner = () => {
  * @type {import('rollup').RollupOptions}
  */
 const config = {
-  cache: !!isDevelopment,
+  cache: isEnvDevelopment,
   watch: {
     include: 'src/**',
   },
-  treeshake: !isDevelopment,
+  onwarn: (warning, warn) => {
+    if (warning.code === 'CIRCULAR_DEPENDENCY') {
+      return;
+    }
+    warn(warning);
+  },
+  treeshake: isEnvProduction,
   input: 'src/index.ts',
   output: [
-    // * IIFE
-    !isDevelopment && {
-      file: 'build/bundle.js',
-      format: 'iife',
-      name,
-      banner,
-      // globals: { cesium: 'Cesium' },
-      sourcemap: true,
-      // plugins: [
-      //   !isDevelopment &&
-      //     visualizer({ sourcemap: true, open: false, gzipSize: false }),
-      // ],
-    },
-    !isDevelopment && {
-      file: 'build/bundle.min.js',
-      format: 'iife',
-      name,
-      banner,
-      // globals: { cesium: 'Cesium' },
-      sourcemap: true,
-      plugins: [minify()],
-    },
     // * UMD
     {
       file: 'build/bundle.umd.js',
@@ -68,59 +58,59 @@ const config = {
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
       // plugins: [
-      //   !isDevelopment &&
+      //   isEnvProduction &&
       //     visualizer({ sourcemap: true, open: false, gzipSize: false }),
       // ],
     },
-    !isDevelopment && {
+    isEnvProduction && {
       file: 'build/bundle.umd.min.js',
       format: 'umd',
       name,
       banner,
       // globals: { cesium: 'Cesium' },
       sourcemap: true,
-      plugins: [minify()],
+      plugins: [terser()],
     },
     // * ES module
-    !isDevelopment && {
+    isEnvProduction && {
       file: 'build/bundle.esm.js',
       format: 'es',
       banner,
       sourcemap: true,
       plugins: [
-        !isDevelopment &&
+        isEnvProduction &&
           visualizer({ sourcemap: true, open: true, gzipSize: false }),
       ],
     },
-    !isDevelopment && {
+    isEnvProduction && {
       file: 'build/bundle.esm.min.js',
       format: 'es',
       banner,
       sourcemap: true,
-      plugins: [minify()],
+      plugins: [terser()],
     },
     // * CommonJS
-    !isDevelopment && {
+    isEnvProduction && {
       file: 'build/bundle.cjs.js',
       format: 'cjs',
       banner,
       sourcemap: true,
       // plugins: [
-      //   !isDevelopment &&
+      //   isEnvProduction &&
       //     visualizer({ sourcemap: true, open: false, gzipSize: false }),
       // ],
     },
-    !isDevelopment && {
+    isEnvProduction && {
       file: 'build/bundle.cjs.min.js',
       format: 'cjs',
       banner,
       sourcemap: true,
-      plugins: [minify()],
+      plugins: [terser()],
     },
   ].filter(Boolean),
   plugins: [
-    del({ targets: 'build/*' }),
-    isDevelopment &&
+    del({ targets: 'build/*', runOnce: true }),
+    isEnvDevelopment &&
       // no V8
       eslint({
         include: ['src/**/*.js', 'src/**/*.ts'],
@@ -128,31 +118,44 @@ const config = {
         fix: true,
         formatter: 'pretty',
       }),
-    nodeResolve({ browser: true }),
-    commonjs({ sourceMap: !isDevelopment }),
+    commonjs({ sourceMap: isEnvDevelopment }),
+    nodeResolve({ browser: true, extensions: ['.ts', '.js'] }),
     json(),
     url({
-      filename: '[name]-[hash][extname]',
+      limit: 1024 * 1000,
+      fileName: '[name]-[hash][extname]',
     }),
-    !isDevelopment &&
-      typescript({
-        clean: true,
-        useTsconfigDeclarationDir: true,
-        check: false,
+    styles({
+      autoModules: (id) => id.includes('.module.'),
+      minimize: isEnvProduction,
+      sourceMap: isEnvDevelopment,
+      // sourceMap: [true, { content: false }]
+    }),
+    typescript({
+      typescript: require('typescript'),
+      tslib: require('tslib'),
+    }),
+    // polyfills
+    isEnvProduction &&
+      babel({
+        ...babelConfig,
+        babelrc: false,
+        exclude: [/\/node_modules\//, /\/core-js\//],
+        extensions: ['.ts', '.js'],
+        babelHelpers: 'runtime',
       }),
-    isDevelopment &&
-      esbuild({
-        target: 'esnext',
-        // optimizeDeps: {
-        //   include: Object.keys(pkg.dependencies),
-        // },
-      }),
-    !isDevelopment && strip({ include: ['src/**/*.js', 'src/**/*.ts'] }),
-    !isDevelopment &&
+    replace({
+      preventAssignment: true,
+      values: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    isEnvProduction && strip({ include: ['src/**/*.js', 'src/**/*.ts'] }),
+    isEnvProduction &&
       progress({
         clearLine: false, // default: true
       }),
-    !isDevelopment && filesize(),
+    isEnvProduction && filesize(),
   ].filter(Boolean),
   external: [],
 };
