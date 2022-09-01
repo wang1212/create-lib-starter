@@ -35,11 +35,38 @@ build/
 
 ## 用法
 
-- 开发阶段：
+- 开发模式
 
   ```bash
-  npm run dev
+  $ npm run dev
   ```
+
+- 开发模式（Web 服务）
+
+  ```bash
+  $ npm run dev-serve
+  ```
+
+- 运行测试
+
+
+  ```bash
+  $ npm run test
+  ```
+
+- 构建打包
+
+  ```bash
+  $ npm run build
+  ```
+
+- 从 Markdown 文档构建 Html 文档
+
+  ```bash
+  $ npm run build:docs-html
+  ```
+
+_更多命令查看 **package.json** 中 `scripts` 字段。_
 
 ## 开发准则
 

@@ -35,11 +35,38 @@ Will also generate the corresponding **sourcemap** file.
 
 ## Usage
 
-- For development:
+- Development mode
 
   ```bash
-  npm run dev
+  $ npm run dev
   ```
+
+- Development mode (web server)
+
+  ```bash
+  $ npm run dev-serve
+  ```
+
+- Run test
+
+
+  ```bash
+  $ npm run test
+  ```
+
+- Build bundle
+
+  ```bash
+  $ npm run build
+  ```
+
+- Build Html documents from Markdown documents
+
+  ```bash
+  $ npm run build:docs-html
+  ```
+
+_See the `scripts` field in **package.json** for more commands._
 
 ## Development Guidelines
 

@@ -10,6 +10,8 @@ module.exports = {
     'types',
     'vendors',
     'docs',
+    'public',
+    'example',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

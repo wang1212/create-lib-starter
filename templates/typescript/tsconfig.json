@@ -30,5 +30,13 @@
     "skipLibCheck": true
   },
   "include": ["src", "vendors/@types"],
-  "exclude": [".eslintrc.cjs", "docs", "public", "dist", "build", "scripts"]
+  "exclude": [
+    ".eslintrc.cjs",
+    "docs",
+    "public",
+    "dist",
+    "build",
+    "scripts",
+    "example"
+  ]
 }
