@@ -11,14 +11,16 @@ console.log('current working directory: ' + WORKING_DIRECTORY);
 
 // ! 脚本必须在项目根目录执行，防止脚本执行错误
 if (!fse.pathExistsSync(path.join(WORKING_DIRECTORY, 'package.json'))) {
-  throw new Error('The package.json file does not exist in the current working directory.\n');
+  throw new Error(
+    'The package.json file does not exist in the current working directory.\n'
+  );
 }
 
 // ! 清空构建目录
 fse.emptyDirSync(path.join(WORKING_DIRECTORY, 'build/'));
 
 const args = process.argv.slice(2);
-let serve = args.findIndex(item => item.trim() === '--serve');
+let serve = args.findIndex((item) => item.trim() === '--serve');
 if (serve > -1) {
   args.splice(serve, 1);
   serve = true;
@@ -47,13 +49,15 @@ esbuild
     banner: {
       js: `
 /*!
- * 时间轴范式组件
+ * ${pkg.name}
+ * @description ${pkg.description}
  * @version ${pkg.version}
  * @date ${new Date().toLocaleString()}
+ * @author ${pkg.author}
  */
-`
+`,
     },
-    entryPoints: ['src/index.ts'].map(p => path.join(WORKING_DIRECTORY, p)),
+    entryPoints: ['src/index.ts'].map((p) => path.join(WORKING_DIRECTORY, p)),
     outfile: BUNDLE_FILE,
     loader: { '.png': 'dataurl', '.svg': 'dataurl' },
     bundle: true,
@@ -75,10 +79,10 @@ esbuild
         }
 
         //
-      }
-    }
+      },
+    },
   })
-  .then(result => {
+  .then((result) => {
     console.log('watching...');
   })
   .catch(() => process.exit(1));
@@ -97,7 +101,7 @@ function logPlugin() {
         startBuild = Date.now();
         console.log('\nbuild started...');
       });
-    }
+    },
   };
 }
 
@@ -110,7 +114,8 @@ function styleInjectPlugin() {
   return {
     name: 'style-inject',
     setup({ initialOptions, onResolve, onLoad, esbuild }) {
-      const require_esbuild = () => esbuild || esbuild_shim || require('esbuild');
+      const require_esbuild = () =>
+        esbuild || esbuild_shim || require('esbuild');
       const opt = {
         logLevel: 'error',
         charset: 'utf8',
@@ -118,7 +123,7 @@ function styleInjectPlugin() {
         minify: initialOptions.minify,
         loader: initialOptions.loader,
         bundle: initialOptions.bundle,
-        write: false
+        write: false,
       };
 
       // see https://github.com/g45t345rt/esbuild-style-plugin/blob/master/src/index.ts#L24
@@ -132,26 +137,28 @@ function styleInjectPlugin() {
 
       // ! 收集 css 文件的原始路径，修复 sourcemap 对应的源文件路径
       // see https://github.com/g45t345rt/esbuild-style-plugin/blob/master/src/index.ts#L147
-      onLoad({ filter: /.*/, namespace: LOAD_STYLE_NAMESPACE }, args => {
+      onLoad({ filter: /.*/, namespace: LOAD_STYLE_NAMESPACE }, (args) => {
         originCSSFilePath.push(args.path);
       });
 
       // ! 覆盖 esbuild-style-plugin 插件生成 css 文件的逻辑
       // see https://github.com/g45t345rt/esbuild-style-plugin/blob/master/src/index.ts#L144
-      onLoad({ filter: /.*/, namespace: LOAD_TEMP_NAMESPACE }, async args => {
+      onLoad({ filter: /.*/, namespace: LOAD_TEMP_NAMESPACE }, async (args) => {
         // ! 转换生成 sourcemap 方便调试
-        const { errors, warnings, outputFiles } = await require_esbuild().build({
-          ...opt,
-          stdin: {
-            contents: args.pluginData.contents,
-            resolveDir: args.pluginData.resolveDir,
-            // ! 修复 sourcemap 对应的源文件路径
-            sourcefile: path
-              .relative(bundleFileDirPath, originCSSFilePath.shift())
-              .replace(/\\/g, '/'),
-            loader: 'css'
+        const { errors, warnings, outputFiles } = await require_esbuild().build(
+          {
+            ...opt,
+            stdin: {
+              contents: args.pluginData.contents,
+              resolveDir: args.pluginData.resolveDir,
+              // ! 修复 sourcemap 对应的源文件路径
+              sourcefile: path
+                .relative(bundleFileDirPath, originCSSFilePath.shift())
+                .replace(/\\/g, '/'),
+              loader: 'css',
+            },
           }
-        });
+        );
         const css = outputFiles[0].text.trimEnd();
 
         return {
@@ -160,19 +167,19 @@ function styleInjectPlugin() {
           resolveDir: args.pluginData.resolveDir,
           contents: `import { inject_style } from "__style_helper__"\nvar css = ${JSON.stringify(
             css
-          )}\ninject_style(css)`
+          )}\ninject_style(css)`,
         };
       });
 
-      onResolve({ filter: /^__style_helper__$/ }, args => {
+      onResolve({ filter: /^__style_helper__$/ }, (args) => {
         return {
           path: 'index.js',
           namespace: 'style-helper',
-          pluginData: { resolveDir: args.resolveDir }
+          pluginData: { resolveDir: args.resolveDir },
         };
       });
 
-      onLoad({ filter: /.*/, namespace: 'style-helper' }, args => ({
+      onLoad({ filter: /.*/, namespace: 'style-helper' }, (args) => ({
         resolveDir: args.pluginData.resolveDir,
         contents:
           `export function inject_style(text) {\n` +
@@ -182,8 +189,8 @@ function styleInjectPlugin() {
           `    style.appendChild(node)\n` +
           `    document.head.appendChild(style)\n` +
           `  }\n` +
-          `}`
+          `}`,
       }));
-    }
+    },
   };
 }

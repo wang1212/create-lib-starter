@@ -50,9 +50,11 @@ const name = 'myLib';
 const banner = () => {
   // see docs: https://github.com/terser/terser#keeping-copyright-notices-or-other-comments
   return `/*!
-  * ${name}
+  * ${pkg.name}
+  * @description ${pkg.description}
   * @version ${pkg.version}
   * @date ${new Date().toLocaleString()}
+  * @author ${pkg.author}
   */`;
 };
 
