@@ -38,17 +38,16 @@ Will also generate the corresponding **sourcemap** file.
 - Development mode
 
   ```bash
-  $ npm run dev
+  $ npm run dev # or $ npm run esbuild-dev
   ```
 
 - Development mode (web server)
 
   ```bash
-  $ npm run dev-serve
+  $ npm run dev-serve # or $ npm run esbuild-dev-serve
   ```
 
 - Run test
-
 
   ```bash
   $ npm run test

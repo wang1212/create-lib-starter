@@ -59,7 +59,7 @@ esbuild
     },
     entryPoints: ['src/index.ts'].map((p) => path.join(WORKING_DIRECTORY, p)),
     outfile: BUNDLE_FILE,
-    loader: { '.png': 'dataurl', '.svg': 'dataurl' },
+    loader: { '.jpg': 'dataurl', '.png': 'dataurl', '.svg': 'dataurl' },
     bundle: true,
     sourcemap: true,
     minify: false,

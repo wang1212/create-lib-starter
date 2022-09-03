@@ -34,6 +34,32 @@ if (!fse.pathExistsSync(path.join(WORKING_DIRECTORY, 'package.json'))) {
 // ! 清空构建目录
 fse.emptyDirSync(path.join(WORKING_DIRECTORY, 'build/'));
 
+const args = process.argv.slice(2);
+let serve = args.findIndex((item) => item.trim() === '--serve');
+if (serve > -1) {
+  args.splice(serve, 1);
+  serve = true;
+} else {
+  serve = false;
+}
+
+// * 开启服务
+let browserSync;
+if (serve) {
+  browserSync = require('./scripts/serve.cjs').browserSync;
+}
+
+function reloadServerPlugin() {
+  return {
+    name: 'reload-server',
+    writeBundle() {
+      if (browserSync) {
+        browserSync.reload();
+      }
+    },
+  };
+}
+
 const NUMBER_KB = 1024;
 const NUMBER_1000 = 1000;
 
@@ -89,10 +115,7 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
       format: 'es',
       banner,
       sourcemap: true,
-      // plugins: [
-      //   isEnvProduction &&
-      //     visualizer({ sourcemap: true, open: true, gzipSize: true, brotliSize: false })
-      // ].filter(Boolean)
+      plugins: [isEnvDevelopment && reloadServerPlugin()].filter(Boolean),
     },
     // * CommonJS
     isEnvProduction && {
@@ -121,7 +144,8 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
     }),
     json(),
     url({
-      limit: NUMBER_KB * NUMBER_1000,
+      // limit: NUMBER_KB * NUMBER_1000,
+      limit: Infinity,
       fileName: '[name]-[hash][extname]',
     }),
     styles({

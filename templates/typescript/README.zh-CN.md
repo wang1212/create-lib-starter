@@ -38,17 +38,16 @@ build/
 - 开发模式
 
   ```bash
-  $ npm run dev
+  $ npm run dev # or $ npm run esbuild-dev
   ```
 
 - 开发模式（Web 服务）
 
   ```bash
-  $ npm run dev-serve
+  $ npm run dev-serve # or $ npm run esbuild-dev-serve
   ```
 
 - 运行测试
-
 
   ```bash
   $ npm run test
