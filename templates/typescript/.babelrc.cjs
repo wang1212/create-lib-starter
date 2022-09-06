@@ -21,6 +21,12 @@ module.exports = {
     '@babel/preset-typescript'
   ],
   plugins: [
+    [
+      '@babel/plugin-transform-typescript',
+      {
+        allowDeclareFields: true
+      }
+    ],
     ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
     // Polyfills the runtime needed for async/await, generators, and friends
     // https://babeljs.io/docs/en/babel-plugin-transform-runtime
