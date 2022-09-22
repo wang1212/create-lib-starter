@@ -77,7 +77,7 @@
     "lint-staged": "13.0.3",
     "markdown-styles": "3.2.0",
     "prettier": "2.7.1",
-    "rollup": "2.77.0",
+    "rollup": "2.79.1",
     "rollup-plugin-delete": "2.0.0",
     "rollup-plugin-esbuild": "4.10.1",
     "rollup-plugin-filesize": "9.1.2",
