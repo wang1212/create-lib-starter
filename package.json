@@ -25,6 +25,6 @@
     "@commitlint/config-conventional": "17.1.0",
     "commitizen": "4.2.5",
     "cz-conventional-changelog": "3.3.0",
-    "husky": "8.0.1"
+    "husky": "8.0.3"
   }
 }
