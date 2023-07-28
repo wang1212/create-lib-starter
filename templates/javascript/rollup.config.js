@@ -91,24 +91,6 @@ const config = {
       sourcemap: true,
       plugins: [terser()],
     },
-    // * CommonJS
-    isEnvProduction && {
-      file: 'build/bundle.cjs.js',
-      format: 'cjs',
-      banner,
-      sourcemap: true,
-      // plugins: [
-      //   isEnvProduction &&
-      //     visualizer({ sourcemap: true, open: false, gzipSize: false }),
-      // ],
-    },
-    isEnvProduction && {
-      file: 'build/bundle.cjs.min.js',
-      format: 'cjs',
-      banner,
-      sourcemap: true,
-      plugins: [terser()],
-    },
   ].filter(Boolean),
   plugins: [
     del({ targets: 'build/*', runOnce: true }),

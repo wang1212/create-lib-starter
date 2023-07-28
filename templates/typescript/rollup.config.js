@@ -85,6 +85,15 @@ const banner = () => {
 };
 
 /**
+ * @param {'esm' | 'umd'} format
+ * @param {'' | 'min'} minimize
+ * @returns
+ */
+function getBundleFile(format, minimize = '') {
+  return `build/bundle.${format}${minimize ? `.${minimize}` : ''}.js`;
+}
+
+/**
  * @type {import('rollup').RollupOptions}
  */
 const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
@@ -103,7 +112,7 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
   output: [
     // * UMD
     isEnvProduction && {
-      file: 'build/bundle.umd.js',
+      file: getBundleFile('umd'),
       format: 'umd',
       name,
       banner,
@@ -111,18 +120,11 @@ const configBuilder = ({ keepDebug = false, env = 'development' } = {}) => ({
     },
     // * ES module
     {
-      file: 'build/bundle.esm.js',
+      file: getBundleFile('esm'),
       format: 'es',
       banner,
       sourcemap: true,
       plugins: [isEnvDevelopment && reloadServerPlugin()].filter(Boolean),
-    },
-    // * CommonJS
-    isEnvProduction && {
-      file: 'build/bundle.cjs.js',
-      format: 'cjs',
-      banner,
-      sourcemap: true,
     },
   ].filter(Boolean),
   plugins: [
@@ -188,21 +190,21 @@ const productionConfig = {
   output: [
     // * UMD
     isEnvProduction && {
-      file: 'build/bundle.umd.min.js',
+      file: getBundleFile('umd', 'min'),
       format: 'umd',
       name,
       banner,
       sourcemap: true,
-      plugins: [terser()],
+      plugins: [terser({ mangle: { safari10: true, reserved: [] } })],
     },
     // * ES module
     isEnvProduction && {
-      file: 'build/bundle.esm.min.js',
+      file: getBundleFile('esm', 'min'),
       format: 'es',
       banner,
       sourcemap: true,
       plugins: [
-        terser(),
+        terser({ mangle: { safari10: true, reserved: [] } }),
         isEnvProduction &&
           visualizer({
             sourcemap: true,
@@ -211,14 +213,6 @@ const productionConfig = {
             brotliSize: false,
           }),
       ].filter(Boolean),
-    },
-    // * CommonJS
-    isEnvProduction && {
-      file: 'build/bundle.cjs.min.js',
-      format: 'cjs',
-      banner,
-      sourcemap: true,
-      plugins: [terser()],
     },
   ].filter(Boolean),
 };
