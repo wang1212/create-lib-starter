@@ -77,7 +77,7 @@
     "@rollup/plugin-url": "7.0.0",
     "@rollup/plugin-virtual": "2.1.0",
     "@types/jest": "29.5.2",
-    "@types/node": "18.11.4",
+    "@types/node": "18.17.0",
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "5.60.1",
     "@wang1212/eslint-config": "0.2.1",
