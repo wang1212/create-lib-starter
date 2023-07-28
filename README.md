@@ -15,7 +15,7 @@ The following templates are provided here:
 
 - [JavaScript](./templates/javascript/)
 - [TypeScript](./templates/typescript/)
-- [CLI](./templates/cli/)
+- [CLI(JavaScript)](./templates/cli/)
 
 ## Usage
 
