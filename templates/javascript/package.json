@@ -10,15 +10,15 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "author": "",
   "exports": {
     "import": "./index.esm.js",
-    "require": "./index.cjs.js",
+    "require": "./index.umd.js",
     "browser": "./index.umd.js"
   },
-  "main": "./index.cjs.js",
+  "main": "./index.umd.js",
   "module": "./index.esm.js",
   "browser": "./index.umd.js",
   "scripts": {
@@ -42,7 +42,6 @@
   },
   "files": [
     "build/",
-    "index.cjs.js",
     "index.esm.js",
     "index.umd.js"
   ],

@@ -24,8 +24,6 @@
 build/
 ├── bundle.esm.js
 ├── bundle.esm.min.js
-├── bundle.cjs.js
-├── bundle.cjs.min.js
 ├── bundle.umd.js
 └── bundle.umd.min.js
 ```
