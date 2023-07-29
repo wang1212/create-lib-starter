@@ -107,7 +107,6 @@
     "rollup-plugin-terser": "7.0.2",
     "rollup-plugin-visualizer": "5.8.3",
     "sass": "1.64.1",
-    "standard-version": "9.5.0",
     "typescript": "5.1.6"
   },
   "dependencies": {
