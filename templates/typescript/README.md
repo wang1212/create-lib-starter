@@ -95,7 +95,7 @@ npm run release -- --dry-run
 npm publish # npm publish --access public
 ```
 
-_These jobs are done with the help of [standard-version](https://github.com/conventional-changelog/standard-version) tool provided by the community._
+_These jobs are done with the help of [release-it](https://github.com/release-it/release-it) tool provided by the community._
 
 ## License
 

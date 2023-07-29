@@ -95,7 +95,7 @@ npm run release -- --dry-run
 npm publish # npm publish --access public
 ```
 
-_这些工作是在社区提供的 [standard-version](https://github.com/conventional-changelog/standard-version) 工具的帮助下完成的。_
+_这些工作是在社区提供的 [release-it](https://github.com/release-it/release-it) 工具的帮助下完成的。_
 
 ## 许可
 
