@@ -10,21 +10,23 @@ const WORKING_DIRECTORY = path.resolve(__dirname, '..');
 
 // ! 脚本必须在项目根目录执行，防止脚本执行错误
 if (!fse.pathExistsSync(path.join(WORKING_DIRECTORY, 'package.json'))) {
-  throw new Error('The package.json file does not exist in the current working directory.\n');
+  throw new Error(
+    'The package.json file does not exist in the current working directory.\n',
+  );
 }
 
-const PUBLIC_DIR = 'example/';
+const PUBLIC_DIR = 'examples/';
 
 browserSync.watch(
   [`${PUBLIC_DIR}**/*`],
   {
-    ignoreInitial: true
+    ignoreInitial: true,
   },
   async (event, file) => {
     if (!['add', 'change'].includes(event)) return;
 
     browserSync.reload();
-  }
+  },
 );
 
 browserSync.init({
@@ -34,7 +36,7 @@ browserSync.init({
   startPath: PUBLIC_DIR,
   // reloadThrottle: 1e3,
   open: true,
-  notify: false
+  notify: false,
 });
 
 exports.browserSync = browserSync;
