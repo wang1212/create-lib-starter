@@ -42,8 +42,8 @@
   ],
   "peerDependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "17.6.7",
-    "@commitlint/config-conventional": "17.6.7",
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
     "@wang1212/eslint-config": "0.2.1",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
