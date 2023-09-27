@@ -3,7 +3,6 @@
   "name": "create-lib-starter",
   "version": "0.0.0",
   "description": "This is a startup development configuration template used to build the **JavaScript/Node.js** library.",
-  "main": "index.js",
   "scripts": {
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\"",
