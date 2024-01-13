@@ -60,7 +60,7 @@
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "4.0.0",
-    "@rollup/plugin-strip": "3.0.2",
+    "@rollup/plugin-strip": "3.0.4",
     "@rollup/plugin-url": "7.0.0",
     "@types/jest": "29.5.3",
     "@wang1212/eslint-config": "0.3.1",
