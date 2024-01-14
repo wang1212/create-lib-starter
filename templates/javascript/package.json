@@ -61,7 +61,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "4.0.0",
     "@rollup/plugin-strip": "3.0.4",
-    "@rollup/plugin-url": "7.0.0",
+    "@rollup/plugin-url": "8.0.2",
     "@types/jest": "29.5.3",
     "@wang1212/eslint-config": "0.3.1",
     "babel-jest": "29.6.1",
