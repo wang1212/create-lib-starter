@@ -75,7 +75,7 @@
     "@rollup/plugin-replace": "5.0.2",
     "@rollup/plugin-strip": "3.0.4",
     "@rollup/plugin-terser": "0.4.4",
-    "@rollup/plugin-url": "8.0.1",
+    "@rollup/plugin-url": "8.0.2",
     "@rollup/plugin-virtual": "3.0.2",
     "@types/jest": "29.5.3",
     "@types/node": "18.19.6",
