@@ -63,7 +63,7 @@
     "@rollup/plugin-strip": "3.0.4",
     "@rollup/plugin-url": "8.0.2",
     "@types/jest": "29.5.3",
-    "@wang1212/eslint-config": "0.3.1",
+    "@wang1212/eslint-config": "0.4.0",
     "babel-jest": "29.6.1",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
