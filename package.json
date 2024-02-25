@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/wang1212/create-lib-starter#readme",
   "devDependencies": {
-    "@commitlint/cli": "18.6.0",
-    "@commitlint/config-conventional": "18.6.0",
+    "@commitlint/cli": "18.6.1",
+    "@commitlint/config-conventional": "18.6.2",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.3"
