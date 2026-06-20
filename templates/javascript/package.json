@@ -46,7 +46,7 @@
     "index.umd.js"
   ],
   "devDependencies": {
-    "@babel/core": "7.23.9",
+    "@babel/core": "7.29.6",
     "@babel/eslint-parser": "7.23.10",
     "@babel/eslint-plugin": "7.23.5",
     "@babel/plugin-proposal-decorators": "7.23.9",
