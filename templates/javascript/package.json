@@ -65,7 +65,7 @@
     "@types/jest": "29.5.3",
     "@wang1212/eslint-config": "0.4.0",
     "babel-jest": "29.6.1",
-    "commitizen": "4.3.0",
+    "commitizen": "4.3.2",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.56.0",
